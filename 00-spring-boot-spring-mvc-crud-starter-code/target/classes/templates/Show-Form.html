@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Form </title>
+</head>
+
+<!--//we have problem in css will repaired -->
+
+<body>
+
+<div class="container">
+    <h3>Employee Directory</h3>
+<hr>
+<!--    here you must warning the  direction to controller not page html -->
+<!--    object the field must insided ${}-->
+    <form action="#" th:action="@{/employees/Save}" th:object="${NewObject}" method="post" >
+
+
+        <input type="hidden" th:field="*{id}">
+
+       First Name :  <input type="text" th:field="${NewObject.firstName}" class="form-controller mb-4 w-25">
+        <br><br>
+        Last Name :  <input type="text" th:field="${NewObject.lastName}" class="form-controller mb-4 w-25">
+        <br><br>
+        Email Name :  <input type="text" th:field="${NewObject.email}" class="form-controller mb-4 w-25">
+        <br><br>
+
+        <button type="submit" class="btn btn-info  col-2">Save</button>
+
+    </form>
+    <hr>
+    <a th:href="@{/employees/list}">Back to Employee List</a>
+</div>
+
+</body>
+</html>
